@@ -1,0 +1,39 @@
+server:
+  port: 18080
+  servlet:
+    context-path: /webapp
+  error:
+    include-stacktrace: never
+
+spring:
+  thymeleaf:
+    cache: false
+  security:
+    oauth2:
+      client:
+        provider:
+          zitadel:
+            issuer-uri: https://dpi-6v6cya.zitadel.cloud
+            user-name-attribute: preferred_username
+        registration:
+          zitadel:
+            client-id: '206333304817910017@spring_boot'
+            client-secret: 'C8llspq7Ywp8KTi6iaSkOlsjbTMk54kqzwg7ogjxpuBrQz2totZ0xvTQHRplUly3'
+            client-authentication-method: client_secret_basic
+            authorizationGrantType: authorization_code
+            redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
+            scope: openid, profile, email, urn:zitadel:iam:org:project:id:zitadel:aud
+
+
+
+logging:
+  level:
+    root: info
+    demo: debug
+    org:
+      springframework:
+        web: info
+        security: debug
+
+zitadel:
+  endsession-endpoint: https://dpi-6v6cya.zitadel.cloud/oidc/v1/end_session

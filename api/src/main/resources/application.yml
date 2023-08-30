@@ -1,0 +1,35 @@
+server:
+  port: 18090
+  servlet:
+    context-path: /
+  error:
+    include-stacktrace: never
+
+spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    deserialization:
+      # deals with single and multi-valued JWT claims
+      accept-single-value-as-array: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dpi-6v6cya.zitadel.cloud
+          jwk-set-uri: https://dpi-6v6cya.zitadel.cloud/oauth/v2/keys
+        opaquetoken:
+          introspection-uri: https://dpi-6v6cya.zitadel.cloud/oauth/v2/introspect
+          client-id: '222543370302587137@spring_boot'
+          client-secret: 'kBlDL2WYdCM7aXnJCTuvnOsLzfyibXCbDaG5nqcnh61OjGBEpg3PCEDTpgvbK5Yn'
+  aop:
+    proxy-target-class: true
+
+logging:
+  level:
+    root: info
+    demo: debug
+    org:
+      springframework:
+        web: info
+        security: debug
