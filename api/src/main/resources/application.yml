@@ -16,12 +16,12 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: https://dpi-6v6cya.zitadel.cloud
-          jwk-set-uri: https://dpi-6v6cya.zitadel.cloud/oauth/v2/keys
+          issuer-uri: https://dpi-6v6cya.zitadel.cloud # zitadel服务域名
+          jwk-set-uri: https://dpi-6v6cya.zitadel.cloud/oauth/v2/keys # zitadel key api
         opaquetoken:
-          introspection-uri: https://dpi-6v6cya.zitadel.cloud/oauth/v2/introspect
-          client-id: '222543370302587137@spring_boot'
-          client-secret: 'kBlDL2WYdCM7aXnJCTuvnOsLzfyibXCbDaG5nqcnh61OjGBEpg3PCEDTpgvbK5Yn'
+          introspection-uri: https://dpi-6v6cya.zitadel.cloud/oauth/v2/introspect # zitadel 身份检查api
+          client-id: '222543370302587137@spring_boot' # 应用client-id
+          client-secret: 'kBlDL2WYdCM7aXnJCTuvnOsLzfyibXCbDaG5nqcnh61OjGBEpg3PCEDTpgvbK5Yn' # 应用密钥
   aop:
     proxy-target-class: true
 
